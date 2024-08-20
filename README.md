@@ -27,7 +27,7 @@ Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _roo
 ```bash
 # using npm
 npm run android
-
+ 
 # OR using Yarn
 yarn android
 ```
