@@ -1,0 +1,109 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/ComicNeue-Bold.ttf",
+      "sha1": "7909abf21cee16951e045b0a3d24955b3803475a"
+    },
+    {
+      "path": "assets/fonts/ComicNeue-BoldItalic.ttf",
+      "sha1": "f421eabc67421dda5a42be27573496296dd8b0c0"
+    },
+    {
+      "path": "assets/fonts/ComicNeue-Italic.ttf",
+      "sha1": "326025b3568368a9157f314feeedab572f4ecb4e"
+    },
+    {
+      "path": "assets/fonts/ComicNeue-Light.ttf",
+      "sha1": "0cf88fa5c42312cae61ff4430d91911f11e86720"
+    },
+    {
+      "path": "assets/fonts/ComicNeue-LightItalic.ttf",
+      "sha1": "5f3ee564ef6292ef12114225cc182ee774b192c5"
+    },
+    {
+      "path": "assets/fonts/ComicNeue-Regular.ttf",
+      "sha1": "3b8675efbb6b4e6d968e5d1ed8990d0a4d7f0db2"
+    },
+    {
+      "path": "assets/fonts/EduAUVICWANTHand-Bold.ttf",
+      "sha1": "c0d8a08c89119017ebfeb7dd1c34535a3d6b2aa2"
+    },
+    {
+      "path": "assets/fonts/EduAUVICWANTHand-Medium.ttf",
+      "sha1": "eb9c391e639de0f55aa03e13d48016e1b670d68b"
+    },
+    {
+      "path": "assets/fonts/EduAUVICWANTHand-Regular.ttf",
+      "sha1": "ec74584f2548aa4927967805d22cb1d762d1405a"
+    },
+    {
+      "path": "assets/fonts/EduAUVICWANTHand-SemiBold.ttf",
+      "sha1": "9164f56ec97c814b15afe7b1602e77dda2f01f9e"
+    },
+    {
+      "path": "assets/fonts/Roboto-Black.ttf",
+      "sha1": "77f9fac05293485120799e83c16225a1af961f25"
+    },
+    {
+      "path": "assets/fonts/Roboto-BlackItalic.ttf",
+      "sha1": "69f1818f7701c009b7ff54ab8e737f925c34d714"
+    },
+    {
+      "path": "assets/fonts/Roboto-Bold.ttf",
+      "sha1": "1e8baa650d943f2b78f1b77dbfe3ba1fb590e21a"
+    },
+    {
+      "path": "assets/fonts/Roboto-BoldItalic.ttf",
+      "sha1": "4393fed62462cc8dd61175539be68f76398eb743"
+    },
+    {
+      "path": "assets/fonts/Roboto-Italic.ttf",
+      "sha1": "01593eb48207734fd1e06e1eb91227d1117ba1e7"
+    },
+    {
+      "path": "assets/fonts/Roboto-Light.ttf",
+      "sha1": "02970068cbc5b4daf5b530e994a5b6f547d03bc1"
+    },
+    {
+      "path": "assets/fonts/Roboto-LightItalic.ttf",
+      "sha1": "21d6b26b4f9695394cecca173494861024764f80"
+    },
+    {
+      "path": "assets/fonts/Roboto-Medium.ttf",
+      "sha1": "0ee6b0bd5ff6fe30e4ef720a08e38656dc60985f"
+    },
+    {
+      "path": "assets/fonts/Roboto-MediumItalic.ttf",
+      "sha1": "19946edc08a323877458a4028d5daecbcb70b0be"
+    },
+    {
+      "path": "assets/fonts/Roboto-Regular.ttf",
+      "sha1": "ce57fc6c6705cb20661ac325fac5d4598b6efbca"
+    },
+    {
+      "path": "assets/fonts/Roboto-Thin.ttf",
+      "sha1": "07ade56a94bbca87948ce7878a0b14a1df9bb87a"
+    },
+    {
+      "path": "assets/fonts/Roboto-ThinItalic.ttf",
+      "sha1": "6a08d5ff3989d2b4a8e960ca0e88e7e0ff104708"
+    },
+    {
+      "path": "assets/fonts/RobotoMono-Italic-VariableFont_wght.ttf",
+      "sha1": "482fe6d50836d6dabe77d2810248e5dfb4f093e0"
+    },
+    {
+      "path": "assets/fonts/RobotoMono-VariableFont_wght.ttf",
+      "sha1": "db68e7694003b4a0f58c675b4131a8226a566f5c"
+    },
+    {
+      "path": "assets/fonts/Rubik-Italic-VariableFont_wght.ttf",
+      "sha1": "90ca1b88e059422427a59b46d52877d66d6fdc81"
+    },
+    {
+      "path": "assets/fonts/Rubik-VariableFont_wght.ttf",
+      "sha1": "80fbecd6d6cb21096b3e0277222e696c77ceb7eb"
+    }
+  ]
+}
