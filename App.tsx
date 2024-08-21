@@ -30,6 +30,8 @@ import {
 // import UsersData from './Screens/info';
 // import Register from './Screens/Register';
 import Products from './Screens/FinalProject/Products';
+import ProductDetails from './Screens/FinalProject/ProductDetails';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   Colors,
   DebugInstructions,
@@ -60,23 +62,21 @@ function App(): React.JSX.Element {
       SplashScreen.hide();
     }
   }, []);
-  //  const [text, onChangeText] = React.useState('Useless Text');
-  // const [email, onChangeEmail] = React.useState('');
-  // const [password, onChangePassword] = React.useState('');
-  // const onPress = () => console.log('Hello' + email);
-
-  // const handlePress = () => {Alert.alert('Welcome' + '  ' + email)};
+  const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* <NavigationContainer>
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
-          <Tab.Screen name="Register" component={Register} />
-          <Tab.Screen name="Login" component={Login} />
-        </Tab.Navigator>
-      </NavigationContainer> */}
-      {/* <UsersData /> */}
-      <Products />
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName='Products'
+          screenOptions={{
+            headerShown: false
+          }}>
+          <Stack.Screen name="Products" component={Products} />
+          <Stack.Screen name="ProductDetails" component={ProductDetails} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      {/* <Products /> */}
     </SafeAreaView>
   );
 }

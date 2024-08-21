@@ -11,6 +11,7 @@ import {
     Image,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Fetch categories from the API
 const fetchCategories = async () => {
@@ -65,11 +66,17 @@ export default function Products() {
             <Text style={styles.categoryText}>{item}</Text>
         </TouchableOpacity>
     );
-
+    const saveData = async ({ item }: { item: any }) => {
+        try {
+            const jsonValue = JSON.stringify(item);
+            await AsyncStorage.setItem('my-key', jsonValue);
+        } catch (e) {
+            console.log(e);
+        }
+    }
     const renderProductItem = ({ item }: { item: any }) => (
         <TouchableOpacity
             style={styles.productContainer}
-        // onPress={() => navigation.navigate('ProductDetails')}
         >
             <Image
                 source={{ uri: item.image }}
