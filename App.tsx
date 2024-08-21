@@ -28,7 +28,8 @@ import {
 // import Pfp from './Screens/pfp';
 // import Login from './Screens/Login';
 // import UsersData from './Screens/info';
-import Register from './Screens/Register';
+// import Register from './Screens/Register';
+import Products from './Screens/FinalProject/Products';
 import {
   Colors,
   DebugInstructions,
@@ -75,7 +76,7 @@ function App(): React.JSX.Element {
         </Tab.Navigator>
       </NavigationContainer> */}
       {/* <UsersData /> */}
-      <Register />
+      <Products />
     </SafeAreaView>
   );
 }
