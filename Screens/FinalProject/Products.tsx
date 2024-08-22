@@ -7,20 +7,49 @@ import {
     TouchableOpacity,
     StyleSheet,
     SafeAreaView,
-    Button,
     Image,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage'; import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 
-// Fetch categories from the API
+// Define the type for your stack's routes
+type RootStackParamList = {
+    Products: undefined; // No parameters expected for Products screen
+    ProductDetails: undefined; // No parameters expected for ProductDetails screen (or you can define specific parameters if needed)
+};
+
+// Define the navigation prop for the Products screen
+type ProductsScreenNavigationProp = StackNavigationProp<
+    RootStackParamList,
+    'Products'
+>;
+
+type ProductDetailsRouteProp = RouteProp<
+    RootStackParamList,
+    'ProductDetails'
+>;
+
+
+
+type Product = {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+    rating: {
+        rate: number;
+        count: number;
+    };
+};
 const fetchCategories = async () => {
     const response = await fetch('https://fakestoreapi.com/products/categories');
     return await response.json();
 };
 
-// Fetch products based on category and search query from the API
-const fetchProducts = async (category?: string, searchQuery?: string) => {
+const fetchProducts = async (category?: string, searchQuery?: string): Promise<Product[]> => {
     let url = 'https://fakestoreapi.com/products';
 
     if (category) {
@@ -28,23 +57,22 @@ const fetchProducts = async (category?: string, searchQuery?: string) => {
     }
 
     const response = await fetch(url);
-    const products = await response.json();
+    const products: Product[] = await response.json();
 
     if (searchQuery) {
-        return products.filter((product: any) =>
+        return products.filter((product) =>
             product.title.toLowerCase().includes(searchQuery.toLowerCase())
         );
     }
-
     return products;
 };
-
 
 export default function Products() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [categories, setCategories] = useState<string[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-    const [products, setProducts] = useState<any[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
+    const navigation = useNavigation<ProductsScreenNavigationProp>();
 
     useEffect(() => {
         fetchCategories().then(setCategories);
@@ -54,29 +82,15 @@ export default function Products() {
         fetchProducts(selectedCategory ?? undefined, searchQuery).then(setProducts);
     }, [selectedCategory, searchQuery]);
 
+    const handleProductPress = async (item: Product) => {
+        await AsyncStorage.setItem('selectedProduct', JSON.stringify(item));
+        navigation.navigate('ProductDetails');
+    };
 
-    const renderCategoryItem = ({ item }: { item: string }) => (
-        <TouchableOpacity
-            style={[
-                styles.categoryButton,
-                item === selectedCategory && styles.selectedCategoryButton,
-            ]}
-            onPress={() => setSelectedCategory(item)}
-        >
-            <Text style={styles.categoryText}>{item}</Text>
-        </TouchableOpacity>
-    );
-    const saveData = async ({ item }: { item: any }) => {
-        try {
-            const jsonValue = JSON.stringify(item);
-            await AsyncStorage.setItem('my-key', jsonValue);
-        } catch (e) {
-            console.log(e);
-        }
-    }
-    const renderProductItem = ({ item }: { item: any }) => (
+    const renderProductItem = ({ item }: { item: Product }) => (
         <TouchableOpacity
             style={styles.productContainer}
+            onPress={() => handleProductPress(item)}
         >
             <Image
                 source={{ uri: item.image }}
@@ -90,7 +104,7 @@ export default function Products() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.heading2}> Welcome </Text>
+            <Text style={styles.heading2}>Welcome</Text>
             <View style={styles.searchContainer}>
                 <TextInput
                     style={styles.searchBar}
@@ -103,7 +117,17 @@ export default function Products() {
             <Text style={styles.heading}>Categories</Text>
             <FlatList
                 data={categories}
-                renderItem={renderCategoryItem}
+                renderItem={({ item }) => (
+                    <TouchableOpacity
+                        style={[
+                            styles.categoryButton,
+                            item === selectedCategory && styles.selectedCategoryButton,
+                        ]}
+                        onPress={() => setSelectedCategory(item)}
+                    >
+                        <Text style={styles.categoryText}>{item}</Text>
+                    </TouchableOpacity>
+                )}
                 keyExtractor={(item) => item.toString()}
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -120,6 +144,8 @@ export default function Products() {
         </SafeAreaView>
     );
 }
+
+
 // FFC7C7 white
 // FFE2E2 blue white
 // F6F6F6 blue

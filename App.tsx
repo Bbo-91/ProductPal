@@ -44,6 +44,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
 import Login from './Screens/Login';
+
 //import { Image } from './node_modules/react-native/types/index';
 
 type SectionProps = PropsWithChildren<{
