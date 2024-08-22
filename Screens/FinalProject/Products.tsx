@@ -99,6 +99,7 @@ export default function Products() {
             />
             <Text style={styles.productName}>{item.title}</Text>
             <Text style={styles.productPrice}>${item.price}</Text>
+            <Text style={styles.productRate}>{item.rating.rate}⭐({item.rating.count})review</Text>
         </TouchableOpacity>
     );
 
@@ -226,5 +227,9 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
         paddingTop: 10,
         marginLeft: 10,
+    },
+    productRate: {
+        color: 'black',
+        fontSize: 14,
     },
 });
