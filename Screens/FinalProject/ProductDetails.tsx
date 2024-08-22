@@ -16,37 +16,38 @@ type Product = {
     }
 };
 export default function ProductDetails() {
-    const [product, setProduct] = useState<Product | null>(null);
+    const [product, setProduct] = useState<Product>();
     const navigation = useNavigation();
 
+    const loadProduct = async () => {
+        const jsonValue = await AsyncStorage.getItem('selectedProduct');
+        if (jsonValue) {
+            setProduct(JSON.parse(jsonValue));
+        }
+    };
     useEffect(() => {
-        const loadProduct = async () => {
-            const jsonValue = await AsyncStorage.getItem('selectedProduct');
-            if (jsonValue) {
-                setProduct(JSON.parse(jsonValue));
-            }
-        };
         loadProduct();
     }, []);
 
     if (!product) {
         return (
-            <View style={styles.container}>
+            <View style={styles.parent}>
                 <Text>Loading...</Text>
             </View>
         );
     }
 
     return (
-        <View style={styles.container}>
+        <View style={styles.parent}>
             <Text style={styles.heading}>{product.title}</Text>
             <Image
                 source={{ uri: product.image }}
-                style={styles.productImage}
+                style={styles.image}
                 resizeMode="contain"
             />
-            <Text style={styles.productPrice}>${product.price.toFixed(2)}</Text>
-            <Text style={styles.productDescription}>{product.description}</Text>
+            <Text style={styles.productPrice}>${product.price}</Text>
+            <Text style={styles.About}>About</Text>
+            <Text style={styles.description}>{product.description}</Text>
             <TouchableOpacity style={styles.backButton} onPress={() => { navigation.goBack() }}>
                 <Text style={styles.backButtonText}>Back to Products</Text>
             </TouchableOpacity>
@@ -55,9 +56,9 @@ export default function ProductDetails() {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    parent: {
         flex: 1,
-        backgroundColor: '#F9F7F7',
+        backgroundColor: 'white',
         padding: 20,
         justifyContent: 'center',
         alignItems: 'center',
@@ -73,13 +74,12 @@ const styles = StyleSheet.create({
         color: '#333',
     },
     heading: {
-        fontSize: 24,
+        fontSize: 26,
         fontWeight: 'bold',
-        color: '#333',
+        color: 'black',
         marginBottom: 20,
-        textAlign: 'center',
     },
-    productImage: {
+    image: {
         width: 200,
         height: 200,
         marginBottom: 20,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         color: '#888888',
         marginBottom: 10,
     },
-    productDescription: {
+    description: {
         fontSize: 16,
         color: '#666666',
         textAlign: 'center',
@@ -107,5 +107,11 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 16,
         textAlign: 'center',
+    },
+    About: {
+        color: 'black',
+        fontSize: 32,
+        marginBottom: 10,
+        fontWeight: 'bold',
     },
 });

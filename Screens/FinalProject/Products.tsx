@@ -82,7 +82,7 @@ export default function Products() {
         fetchProducts(selectedCategory ?? undefined, searchQuery).then(setProducts);
     }, [selectedCategory, searchQuery]);
 
-    const handleProductPress = async (item: Product) => {
+    const ProductPress = async (item: Product) => {
         await AsyncStorage.setItem('selectedProduct', JSON.stringify(item));
         navigation.navigate('ProductDetails');
     };
@@ -90,7 +90,7 @@ export default function Products() {
     const renderProductItem = ({ item }: { item: Product }) => (
         <TouchableOpacity
             style={styles.productContainer}
-            onPress={() => handleProductPress(item)}
+            onPress={() => ProductPress(item)}
         >
             <Image
                 source={{ uri: item.image }}
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#4CAF50',
     },
     categoryText: {
-        color: '#333333',
+        color: 'white',
     },
     productList: {
         flexGrow: 1,
@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
     productName: {
         fontSize: 16,
         fontWeight: 'bold',
+        color: 'black'
     },
     productPrice: {
         fontSize: 16,
