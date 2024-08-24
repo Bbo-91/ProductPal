@@ -13,13 +13,11 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'; import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 
-// Define the type for your stack's routes
 type RootStackParamList = {
-    Products: undefined; // No parameters expected for Products screen
-    ProductDetails: undefined; // No parameters expected for ProductDetails screen (or you can define specific parameters if needed)
+    Products: undefined;
+    ProductDetails: undefined;
 };
 
-// Define the navigation prop for the Products screen
 type ProductsScreenNavigationProp = StackNavigationProp<
     RootStackParamList,
     'Products'
