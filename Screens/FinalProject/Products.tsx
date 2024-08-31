@@ -65,6 +65,12 @@ const fetchProducts = async (category?: string, searchQuery?: string): Promise<P
     return products;
 };
 
+const capitalizeFirstLetter = (str: string): string => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+
+
 export default function Products() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [categories, setCategories] = useState<string[]>([]);
@@ -73,7 +79,12 @@ export default function Products() {
     const navigation = useNavigation<ProductsScreenNavigationProp>();
 
     useEffect(() => {
-        fetchCategories().then(setCategories);
+        fetchCategories().then((categories) => {
+            const capitalizedCategories = categories.map((category: string) =>
+                capitalizeFirstLetter(category)
+            );
+            setCategories(capitalizedCategories);
+        });
     }, []);
 
     useEffect(() => {
@@ -97,7 +108,7 @@ export default function Products() {
             />
             <Text style={styles.productName}>{item.title}</Text>
             <Text style={styles.productPrice}>${item.price}</Text>
-            <Text style={styles.productRate}>{item.rating.rate}⭐({item.rating.count})review</Text>
+            <Text style={styles.productRate}>{item.rating.rate}⭐  ({item.rating.count}) review</Text>
         </TouchableOpacity>
     );
 
@@ -108,7 +119,7 @@ export default function Products() {
                 <TextInput
                     style={styles.searchBar}
                     placeholder="Search Products..."
-                    placeholderTextColor='#000000'
+                    placeholderTextColor='#3d405b'
                     value={searchQuery}
                     onChangeText={setSearchQuery}
                 />
@@ -144,15 +155,16 @@ export default function Products() {
     );
 }
 
+// f4f1de ~ Eggshell
+// e07a5f ~ Burnt sienna
+// 3d405b ~ Delft Blue
+// 81b29a ~ Cambridge blue
+// f2cc8f ~ Sunset
 
-// FFC7C7 white
-// FFE2E2 blue white
-// F6F6F6 blue
-// 8785A2 navy
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F9F7F7',
+        backgroundColor: '#f4f1de',
         padding: 20,
     },
     searchContainer: {
@@ -163,7 +175,7 @@ const styles = StyleSheet.create({
     searchBar: {
         flex: 1,
         height: 40,
-        borderColor: '#CCCCCC',
+        borderColor: '#e6d6bc',
         borderWidth: 1,
         borderRadius: 8,
         paddingHorizontal: 10,
@@ -171,9 +183,9 @@ const styles = StyleSheet.create({
     categoryButton: {
         flex: 1,
         paddingVertical: 8,
-        paddingHorizontal: 30,
-        backgroundColor: '#3F72AF',
-        borderRadius: 25,
+        paddingHorizontal: 22,
+        backgroundColor: '#81b29a',
+        borderRadius: 10,
         marginRight: 10,
         height: 40,
         marginBottom: 20,
@@ -181,10 +193,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     selectedCategoryButton: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: '#e07a5f',
     },
     categoryText: {
         color: 'white',
+        fontSize: 16,
+        fontWeight: 'ultralight',
     },
     productList: {
         flexGrow: 1,
@@ -196,6 +210,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         margin: 10,
         width: "45%",
+        elevation: 3,
     },
     productImage: {
         width: '100%',
@@ -205,7 +220,7 @@ const styles = StyleSheet.create({
     productName: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: 'black'
+        color: '#3D405B'
     },
     productPrice: {
         fontSize: 16,
@@ -213,14 +228,14 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontWeight: 'bold',
-        color: 'black',
+        color: '#3D405B',
         fontSize: 20,
         paddingBottom: 10,
         marginLeft: 10,
     },
     heading2: {
         fontWeight: 'bold',
-        color: 'black',
+        color: '#3D405B',
         fontSize: 25,
         paddingBottom: 20,
         paddingTop: 10,
@@ -229,5 +244,7 @@ const styles = StyleSheet.create({
     productRate: {
         color: 'black',
         fontSize: 14,
+        marginTop: 'auto',
+        fontWeight: 'bold',
     },
 });

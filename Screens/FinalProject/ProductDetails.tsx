@@ -55,33 +55,29 @@ export default function ProductDetails() {
     );
 }
 
+// f4f1de ~ Eggshell
+// e07a5f ~ Burnt sienna
+// 3d405b ~ Delft Blue
+// 81b29a ~ Cambridge blue
+// f2cc8f ~ Sunset
 const styles = StyleSheet.create({
     parent: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#f4f1de',
         padding: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    loadingContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F9F7F7',
-    },
-    loadingText: {
-        fontSize: 18,
-        color: '#333',
-    },
     heading: {
         fontSize: 26,
         fontWeight: 'bold',
-        color: 'black',
+        color: '#3d405b',
         marginBottom: 20,
     },
     image: {
-        width: 200,
-        height: 200,
+        width: '100%',
+        height: 300,
+        aspectRatio: 1,
         marginBottom: 20,
     },
     productPrice: {
@@ -92,13 +88,13 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 16,
-        color: '#666666',
+        color: '#3d405b',
         textAlign: 'center',
         marginHorizontal: 20,
         marginBottom: 20,
     },
     backButton: {
-        backgroundColor: '#3F72AF',
+        backgroundColor: '#e07a5f',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 10,
@@ -109,7 +105,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     About: {
-        color: 'black',
+        color: '#3d405b',
         fontSize: 32,
         marginBottom: 10,
         fontWeight: 'bold',

@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
@@ -24,26 +24,15 @@ import {
   TextInput,
   Platform,
 } from 'react-native';
-// import Home from './Screens/Home';
-// import Pfp from './Screens/pfp';
-// import Login from './Screens/Login';
-// import UsersData from './Screens/info';
-// import Register from './Screens/Register';
 import Products from './Screens/FinalProject/Products';
 import ProductDetails from './Screens/FinalProject/ProductDetails';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
-import Login from './Screens/Login';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -63,6 +52,7 @@ function App(): React.JSX.Element {
   }, []);
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <NavigationContainer>
