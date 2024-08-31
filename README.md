@@ -33,6 +33,7 @@ ProductPal is a React Native application that retrieves products from an API and
 
 <img src="./showcase Images/category2.png" alt="category example" width="200">
 
+---
 
 ### 2. Pressed Product Details Screen
 
