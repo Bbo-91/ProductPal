@@ -25,6 +25,10 @@ ProductPal is a React Native application that retrieves products from an API and
 
 <img src="./showcase Images/search2.png" alt="search example" width="200">
 
+<br>
+
+- The search works so it searches for any word in the product title that matches the written text in the search bar
+
 #### Category feature
 
 <img src="./showcase Images/category2.png" alt="category example" width="200">
@@ -41,4 +45,8 @@ ProductPal is a React Native application that retrieves products from an API and
 ## Technical Notes
 
 - Built using React Native for cross-platform compatibility
-- Uses API calls to fetch instructor information
+- Uses API calls to fetch Products' information
+
+<br>
+
+**_NOTE :_** the used api is from [Fake Store API](https://fakestoreapi.com/products/)
