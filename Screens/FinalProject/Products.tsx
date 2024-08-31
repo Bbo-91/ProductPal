@@ -79,12 +79,7 @@ export default function Products() {
     const navigation = useNavigation<ProductsScreenNavigationProp>();
 
     useEffect(() => {
-        fetchCategories().then((categories) => {
-            const capitalizedCategories = categories.map((category: string) =>
-                capitalizeFirstLetter(category)
-            );
-            setCategories(capitalizedCategories);
-        });
+        fetchCategories().then(setCategories);
     }, []);
 
     useEffect(() => {
@@ -135,7 +130,7 @@ export default function Products() {
                         ]}
                         onPress={() => setSelectedCategory(item)}
                     >
-                        <Text style={styles.categoryText}>{item}</Text>
+                        <Text style={styles.categoryText}>{item.charAt(0).toUpperCase() + item.slice(1)}</Text>
                     </TouchableOpacity>
                 )}
                 keyExtractor={(item) => item.toString()}
