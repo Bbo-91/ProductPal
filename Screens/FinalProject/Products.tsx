@@ -65,12 +65,6 @@ const fetchProducts = async (category?: string, searchQuery?: string): Promise<P
     return products;
 };
 
-const capitalizeFirstLetter = (str: string): string => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
-
-
 export default function Products() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [categories, setCategories] = useState<string[]>([]);
