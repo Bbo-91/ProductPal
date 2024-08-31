@@ -27,7 +27,7 @@ ProductPal is a React Native application that retrieves products from an API and
 
 <br>
 
-- The search works so it searches ==for any word== in the product title that matches the written text in the search bar not just the first word.
+- The search works so it searches **for any word** in the product title that matches the written text in the search bar not just the first word.
 
 #### Category feature
 
